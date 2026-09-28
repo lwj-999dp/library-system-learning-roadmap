@@ -200,6 +200,7 @@ flowchart TB
 | **[`practice/`](practice/)** | ⭐ **可直接运行的练习脚手架**（自带自测的填空题） |
 | [`docs/`](docs/) | 每个阶段的详细计划（目标 / 资源 / 知识点 / 练习 / 验收） |
 | [`diagrams/`](diagrams/) | 所有 Mermaid 流程图单独存放 |
+| [`AI-CONTEXT.md`](AI-CONTEXT.md) | 🤖 给**新开的 AI 对话**看的上下文交接（项目口径、环境、约定、该怎么配合你） |
 
 ### `docs/` 目录
 
