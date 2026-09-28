@@ -11,7 +11,7 @@
 
 1. **读这份文档**（你正在读）。
 2. **问用户一句**：「你现在学到哪个阶段/第几周了？」—— **不要假设他的进度**。
-3. **然后按 [`PLAN-26周.md`](../PLAN-26周.md) 对应的那一周来带他**。
+3. **然后按 [`PLAN-26周.md`](PLAN-26周.md) 对应的那一周来带他**。
 
 > ⚠️ **最重要的一条：不要直接给答案。** 仓库的 `practice/` 是刻意留了 TODO 的填空题，直接给答案会毁掉整个学习设计。见 [第 8 节](#8-请-ai-这样配合重要)。
 
@@ -229,7 +229,7 @@ uvicorn main:app --reload --app-dir C:\Users\lwj\library-system-learning-roadmap
 | 已投入工时 | 待填 |
 | 最近卡在哪 | 待填 |
 
-**权威进度在 [`progress.md`](../progress.md)**（用户每周更新）。
+**权威进度在 [`progress.md`](progress.md)**（用户每周更新）。
 
 ---
 
@@ -276,16 +276,16 @@ uvicorn main:app --reload --app-dir C:\Users\lwj\library-system-learning-roadmap
 
 | 问题 | 看哪 |
 |---|---|
-| 这周该做什么？ | [`PLAN-26周.md`](../PLAN-26周.md) |
+| 这周该做什么？ | [`PLAN-26周.md`](PLAN-26周.md) |
 | 这个阶段学什么、多久、怎么验收？ | `docs/` 下对应文档 |
-| 有哪些推荐资源？ | [`resources.md`](../resources.md) |
-| 我算学完了吗？ | [`milestones.md`](../milestones.md) |
-| 为什么前端不算库存？ | [`README.md`](../README.md) 设计要点、[`docs/07`](../docs/07-前后端联调.md) |
-| 并发超借的原理？ | [`docs/03-数据库与SQL.md`](../docs/03-数据库与SQL.md) 事务与锁章节 |
-| 数据模型长什么样？ | [`diagrams/04-数据模型图.md`](../diagrams/04-数据模型图.md) |
-| 借书/还书的完整时序？ | [`diagrams/05-借书时序图.md`](../diagrams/05-借书时序图.md) |
-| 报错 `blocked by CORS policy` / 401 / 422 怎么修？ | [`docs/07-前后端联调.md`](../docs/07-前后端联调.md) 的报错对照表 |
-| 动手练习的脚手架在哪？ | [`practice/`](../practice/) |
+| 有哪些推荐资源？ | [`resources.md`](resources.md) |
+| 我算学完了吗？ | [`milestones.md`](milestones.md) |
+| 为什么前端不算库存？ | [`README.md`](README.md) 设计要点、[`docs/07`](docs/07-前后端联调.md) |
+| 并发超借的原理？ | [`docs/03-数据库与SQL.md`](docs/03-数据库与SQL.md) 事务与锁章节 |
+| 数据模型长什么样？ | [`diagrams/04-数据模型图.md`](diagrams/04-数据模型图.md) |
+| 借书/还书的完整时序？ | [`diagrams/05-借书时序图.md`](diagrams/05-借书时序图.md) |
+| 报错 `blocked by CORS policy` / 401 / 422 怎么修？ | [`docs/07-前后端联调.md`](docs/07-前后端联调.md) 的报错对照表 |
+| 动手练习的脚手架在哪？ | [`practice/`](practice/) |
 
 ---
 
