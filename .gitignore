@@ -1,0 +1,36 @@
+# ---------- 编辑器 / 操作系统 ----------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---------- 临时文件 ----------
+tmp/
+temp/
+*.tmp
+*~
+
+# ---------- 学习过程中的练习代码 ----------
+# 建议：把练习代码放在 practice/ 下，是否提交自己决定
+practice/node_modules/
+practice/.venv/
+practice/venv/
+practice/__pycache__/
+practice/dist/
+
+# ---------- 密钥（绝不提交）----------
+.env
+.env.local
+.env.*.local
+*.jwt_secret
+.jwt_secret
+*.pem
+*.key
+
+# ---------- 运行时 ----------
+logs/
+*.log
+*.db
+*.db-shm
+*.db-wal
