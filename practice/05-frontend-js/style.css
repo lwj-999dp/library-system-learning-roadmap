@@ -1,0 +1,353 @@
+/* ============================================================
+ * 阶段 6 · 纯 JS 版练习的样式
+ * 这个文件是「给好的」——样式不是本练习的学习重点，照抄即可。
+ * 但建议你顺手看懂这几处：CSS 变量、Flexbox 工具栏、:hover、媒体查询。
+ * ============================================================ */
+
+:root {
+  --brand: #2d6a4f;
+  --brand-dark: #1b4332;
+  --border: #e5e7eb;
+  --text: #1f2937;
+  --muted: #64748b;
+  --bg: #f8fafc;
+  --danger: #991b1b;
+  --danger-bg: #fee2e2;
+  --ok: #166534;
+  --ok-bg: #dcfce7;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ---------- 顶部导航 ---------- */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  margin: 0;
+  font-size: 18px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.user {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ---------- 布局 ---------- */
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+.login-card {
+  max-width: 380px;
+  margin: 40px auto;
+  padding: 24px;
+  overflow: visible;
+}
+
+.login-card h2 {
+  margin: 0 0 4px;
+}
+
+.login-card label {
+  display: block;
+  margin: 12px 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---------- 表单控件 ---------- */
+input,
+button {
+  font: inherit;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"] {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+}
+
+input:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+  border-color: var(--brand);
+}
+
+/* ---------- 工具栏（Flexbox 一维排列） ---------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.toolbar input {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ---------- 按钮 ---------- */
+.btn {
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.btn-primary {
+  width: 100%;
+  margin-top: 16px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--brand-dark);
+}
+
+.btn-ghost {
+  background: #fff;
+  border-color: var(--border);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+.btn-link {
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--brand);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 表格里的借书按钮 */
+.btn-borrow {
+  padding: 5px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--brand);
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-borrow:hover:not(:disabled) {
+  background: var(--brand-dark);
+}
+
+/* ---------- 表格 ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+thead th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background: var(--bg);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px;
+}
+
+/* ---------- 状态标签 ---------- */
+.tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.tag-ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+.tag-out {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* ---------- 文字提示 ---------- */
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 13px;
+}
+
+.error {
+  margin: 8px 0 0;
+  min-height: 20px;
+  color: var(--danger);
+  font-size: 14px;
+}
+
+.hint {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  background: #f8fafc;
+}
+
+code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  font-size: 0.92em;
+}
+
+/* ---------- toast 提示区（固定右上角） ---------- */
+.toast-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+
+.toast {
+  min-width: 200px;
+  max-width: 320px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #fff;
+  background: #334155;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.18);
+  font-size: 14px;
+  animation: slide-in 0.15s ease-out;
+}
+
+.toast-success {
+  background: var(--brand);
+}
+
+.toast-error {
+  background: #b91c1c;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---------- 自检浮动按钮 ---------- */
+.self-check {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: #1d3557;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+}
+
+.self-check:hover {
+  background: #14263f;
+}
+
+/* ---------- 响应式：窄屏不横向溢出 ---------- */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 12px;
+    margin: 16px auto;
+  }
+
+  .topbar {
+    padding: 12px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+}

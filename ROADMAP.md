@@ -137,8 +137,9 @@ flowchart LR
 
 ```sql
 -- 库存必须永远守恒，任何时刻跑这句都应该返回 0
-SELECT (SELECT SUM(stock - available) FROM books WHERE is_deleted = 0)
-     - (SELECT COUNT(*) FROM borrow_records WHERE return_date IS NULL);
+SELECT (SELECT IFNULL(SUM(stock - available), 0) FROM books WHERE is_deleted = 0)
+     - (SELECT COUNT(*) FROM borrow_records WHERE return_date IS NULL)
+     - (SELECT COUNT(*) FROM reservations  WHERE status = 'ready') AS diff;   -- 必须为 0
 ```
 
 **产出物：** 里程碑 ④ 真数据库 CRUD。（里程碑 ⑦ **并发修复** 的原理在本阶段学完，但要等阶段 4 有了借书接口才能真正跑起来 —— 见下方说明。）
@@ -337,4 +338,4 @@ flowchart TD
 
 ---
 
-[← 返回首页](README.md) · [资源总表](resources.md) · [里程碑](milestones.md) · [进度打卡](progress.md)
+[← 返回首页](README.md) · [26 周日历](PLAN-26周.md) · [资源总表](resources.md) · [里程碑](milestones.md) · [进度打卡](progress.md)

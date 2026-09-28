@@ -718,8 +718,9 @@ def list_borrows(db: Session = Depends(get_db), page: int = 1, page_size: int = 
 - [ ] **`stock - available` 恒等于「在借 + 预约占位」**，用下面这句 SQL 验证，结果恒为 `0`
 
 ```sql
-SELECT (SELECT SUM(stock - available) FROM books WHERE is_deleted = 0)
-     - (SELECT COUNT(*) FROM borrow_records WHERE return_date IS NULL) AS diff;
+SELECT (SELECT IFNULL(SUM(stock - available), 0) FROM books WHERE is_deleted = 0)
+     - (SELECT COUNT(*) FROM borrow_records WHERE return_date IS NULL)
+     - (SELECT COUNT(*) FROM reservations  WHERE status = 'ready') AS diff;   -- 必须为 0
 ```
 
 - [ ] 用 `echo=True` 数一次「借一本书」发了几条 SQL，能指出哪条是 `FOR UPDATE`

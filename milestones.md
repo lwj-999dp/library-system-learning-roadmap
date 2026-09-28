@@ -163,8 +163,9 @@ available = stock - 未归还借阅数 - 已到书待取的预约占位数
 
 ```sql
 -- 任何时刻跑这句，结果都应该是 0
-SELECT (SELECT SUM(stock - available) FROM books WHERE is_deleted = 0)
-     - (SELECT COUNT(*) FROM borrow_records WHERE return_date IS NULL);
+SELECT (SELECT IFNULL(SUM(stock - available), 0) FROM books WHERE is_deleted = 0)
+     - (SELECT COUNT(*) FROM borrow_records WHERE return_date IS NULL)
+     - (SELECT COUNT(*) FROM reservations  WHERE status = 'ready') AS diff;   -- 必须为 0
 ```
 
 - [ ] 借阅状态**不存数据库**，由日期推导：

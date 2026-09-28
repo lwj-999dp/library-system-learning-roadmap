@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图书管理系统 · 纯 JS 版练习</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ==================== 顶部导航 ==================== -->
+  <header class="topbar">
+    <h1 class="brand">📚 图书管理系统</h1>
+    <div class="topbar-right">
+      <span id="mode-badge" class="badge">mock 模式</span>
+      <span id="current-user" class="user"></span>
+      <button id="logout-btn" class="btn btn-ghost" type="button" hidden>退出登录</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ==================== 页面 1：登录 ==================== -->
+    <section id="login-page" class="page">
+      <form id="login-form" class="card login-card" novalidate>
+        <h2>登录</h2>
+        <p class="muted">练习账号：<code>admin</code> / <code>123456</code></p>
+
+        <label for="login-username">用户名</label>
+        <input id="login-username" name="username" type="text" placeholder="请输入用户名" autocomplete="username" required />
+
+        <label for="login-password">密码</label>
+        <input id="login-password" name="password" type="password" placeholder="请输入密码" autocomplete="current-password" required />
+
+        <p id="login-error" class="error" role="alert"></p>
+
+        <button id="login-submit" class="btn btn-primary" type="submit">登录</button>
+
+        <!-- 只在本文件顶部 USE_MOCK = true 时显示 -->
+        <div id="mock-hint" class="hint" hidden>
+          <strong>当前是 mock 模式</strong>：不连后端也能练前端。
+          <button id="skip-login-btn" class="btn btn-link" type="button">跳过登录，直接看列表 →</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ==================== 页面 2：图书列表 ==================== -->
+    <section id="books-page" class="page" hidden>
+      <div class="toolbar">
+        <input id="search-input" type="search" placeholder="搜索书名 / 作者 / ISBN（输入即过滤）" />
+        <button id="refresh-btn" class="btn btn-ghost" type="button">刷新</button>
+      </div>
+
+      <p id="loading" class="muted" hidden>加载中…</p>
+      <p id="list-error" class="error" role="alert"></p>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>ISBN</th>
+              <th>书名</th>
+              <th>作者</th>
+              <th>库存</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="book-tbody">
+            <!-- 由 app.js 的 renderBooks() 填充（这行是 TODO 之一） -->
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted small">
+        提示：库存与状态只信后端返回的值，前端不要自己减库存（见 <code>docs/07-前后端联调.md</code> 第 1 节）。
+      </p>
+    </section>
+  </main>
+
+  <!-- 自检入口：做完一个 TODO 就点一下，或直接在控制台敲 runSelfCheck() -->
+  <button id="self-check-btn" class="self-check" type="button" title="检查还有哪些 TODO 没做">自检</button>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <noscript>本练习需要开启 JavaScript。</noscript>
+
+  <!-- 普通脚本（不是 type="module"），所以双击 file:// 打开也能跑，不会有 CORS 问题 -->
+  <script src="app.js" defer></script>
+</body>
+</html>

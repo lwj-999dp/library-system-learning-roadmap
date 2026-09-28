@@ -156,4 +156,4 @@
 
 ---
 
-[← 里程碑](milestones.md) · [返回首页](README.md)
+[← 里程碑](milestones.md) · [26 周日历](PLAN-26周.md) · [返回首页](README.md)

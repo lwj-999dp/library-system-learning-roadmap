@@ -16,8 +16,9 @@ temp/
 practice/node_modules/
 practice/.venv/
 practice/venv/
-practice/__pycache__/
 practice/dist/
+__pycache__/
+*.pyc
 
 # ---------- 密钥（绝不提交）----------
 .env

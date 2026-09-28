@@ -599,8 +599,9 @@ def borrow_fixed(user_id: str, book_id: str, days: int = 30) -> dict:
 
 ```sql
 -- 并发测试后立刻跑，结果必须是 0
-SELECT (SELECT SUM(stock - available) FROM books WHERE is_deleted = 0)
-     - (SELECT COUNT(*) FROM borrow_records WHERE return_date IS NULL) AS diff;
+SELECT (SELECT IFNULL(SUM(stock - available), 0) FROM books WHERE is_deleted = 0)
+     - (SELECT COUNT(*) FROM borrow_records WHERE return_date IS NULL)
+     - (SELECT COUNT(*) FROM reservations  WHERE status = 'ready') AS diff;   -- 必须为 0
 ```
 
 - [ ] 修复前复现出 ≥2 个 `201`；修复后只有 1 个 `201`
